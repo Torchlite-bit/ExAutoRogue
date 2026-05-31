@@ -7,6 +7,7 @@ Additionally, it features smart target-classification detection to automatically
 
 ## ⚠️ Critical Setup Requirement
 To allow the addon to manage your auto-attacks smoothly without toggling them off when spamming, you **must** place the standard **Attack** icon (found in the General tab of your Spellbook) onto **Action Slot 12** (the furthest right slot on your main bottom action bar).The addon uses this to reliably force auto-attacks without toggling them off if you spam the macro.
+
 `If using SCRM this is not required and instead just add /startattack to your macro`
 
 Usage : Create a macro with:
