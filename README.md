@@ -1,5 +1,5 @@
 # ExAutoRogue
-An Addon for TurtleWoW for automatically managing a Rogue's combat rotation to maintain maximum uptime on Slice and Dice while efficiently spending combo points. This relies on CombatLog entries to detect Parries for instant Riposte casts, completely bypassing the need to have Riposte on your action bar.
+An Addon for TurtleWoW for automatically managing a Rogue's combat rotation to maintain maximum uptime on Slice and Dice while efficiently spending combo points. This relies on CombatLog entries to detect Parries for instant Riposte casts, completely bypassing the need to have Riposte on your action bar. This addon was inspired by Excinerus' ExAutoCSHS addon and tailored for rogues.
 
 Additionally, it features smart target-classification detection to automatically manage major cooldowns and debuffs like Expose Armor based on whether you are fighting normal mobs or Elites/Bosses.
 
