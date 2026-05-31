@@ -10,7 +10,7 @@ To allow the addon to manage your auto-attacks smoothly without toggling them of
 `If using SCRM this is not required and instead just add /startattack to your macro`
 
 Usage : Create a macro with:
-`/AutoRogue [snd1/snd2] [evis4/evis5] [hemo] [cds] [autocd] [expose]`
+`/AutoRogue [nosnd/snd1/snd2] [evis4/evis5] [hemo] [cds] [autocd] [expose]`
 
 - `nosnd` ignore Slice and Dice entirely while you are leveling up.
 - `snd1` casts Slice and Dice at 1 combo point.
