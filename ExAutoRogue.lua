@@ -86,12 +86,20 @@ function ExAutoRogue:EvalCommand(msg)
         popCDs = true
     end
 
-    -- 1. Auto Target
+     -- 1. Auto Target
     if not UnitExists("target") or UnitIsDead("target") then 
         TargetNearestEnemy() 
     end
     
     if not UnitCanAttack("player", "target") then return end
+
+    -- 2. Smart Auto-Attack Detection
+    if not IsAddOnLoaded("SuperCleveRoidMacros") then
+        -- Fallback: If SCRM is missing, use the Vanilla Slot 12 trick
+        if HasAction(12) and not IsCurrentAction(12) then
+            CastSpellByName("Attack")
+        end
+    end
 
     -- 2. Pop Cooldowns (If triggered)
     if popCDs then
