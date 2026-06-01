@@ -1,45 +1,48 @@
 # ExAutoRogue
-An Addon for TurtleWoW for automatically managing a Rogue's combat rotation to maintain maximum uptime on Slice and Dice while efficiently spending combo points. This relies on CombatLog entries to detect Parries for instant Riposte casts, completely bypassing the need to have Riposte on your action bar. This addon was inspired by Excinerus' ExAutoCSHS addon and tailored for rogues.
+An Addon for 1.12.1 / 1.18.1 (TurtleWoW) for automatically managing a Rogue's combat rotation to maintain maximum uptime on Slice and Dice while efficiently spending combo points. This addon dynamically reads your spellbook to adapt to your level and talent build, making it perfect for custom servers and unique ability paths.
+
+Inspired by Excinerus' ExAutoCSHS addon, ExAutoRogue relies on CombatLog entries to detect Parries for instant Riposte casts, completely bypassing the need to have it on your action bar or handle macro race conditions.
 
 Additionally, it features smart target-classification detection to automatically manage major cooldowns and debuffs like Expose Armor based on whether you are fighting normal mobs or Elites/Bosses.
 
 # Important Setup Requirement: 
 
 ## ⚠️ Critical Setup Requirement
-To allow the addon to manage your auto-attacks smoothly without toggling them off when spamming, you **must** place the standard **Attack** icon (found in the General tab of your Spellbook) onto **Action Slot 12** (the furthest right slot on your main bottom action bar).The addon uses this to reliably force auto-attacks without toggling them off if you spam the macro.
+To allow the addon to smoothly manage auto-attacks without toggling them off when spamming, you must place the standard Attack icon (found in the General tab of your Spellbook) anywhere on your action bars. The addon scans all 172 possible action slots to safely trigger weapon swings.
 
-`If using SCRM this is not required and instead just add /startattack to your macro`
+Note: If you use the SuperCleveRoidMacros (SCRM) addon, this is not required. You can simply add /startattack to the top of your macro.
 
-Usage : Create a macro with:
-`/AutoRogue [nosnd/snd1/snd2] [evis4/evis5] [hemo] [cds] [autocd] [expose]`
+# Usage & Command Arguments
+Create a standard in-game macro with the following command:
 
-- `nosnd` ignore Slice and Dice entirely while you are leveling up.
-- `snd1` casts Slice and Dice at 1 combo point.
-- `snd2` casts Slice and Dice at 2 combo points [default setting].
-- `evis4` casts Eviscerate at 4+ combo points [default setting].
-- `evis5` waits to cast Eviscerate until you have exactly 5 combo points.
+`/AutoRogue [evis4/evis5] [hemo] [cds] [autocd] [expose] [nosnd]`
 
-- `hemo` uses Hemorrhage as your primary combo point builder [default is Sinister Strike].
 
-- `cds` will pop Adrenaline Rush and Blade Flurry on cooldown regardless of target [disabled by default].
+## 🧠 Smart Auto-Detection Features
+ExAutoRogue scans your spellbook automatically. It will gracefully ignore abilities you haven't learned yet (no need to manually bypass Slice and Dice while under level 10). It also automatically detects custom abilities like Envenom and Noxious Assault, smoothly weaving them into your priority rotation if you have them trained, and tracking Deadly Poison stacks to ensure maximum damage.
 
-- `autocd` will only pop Adrenaline Rush and Blade Flurry if the target is classified as an Elite, Rare Elite, or World Boss [disabled by default].
+## ⚙️ Configuration Options
 
-- `expose` will attempt to apply Expose Armor at 5 combo points if the target is an Elite/Boss and does not already have the debuff [disabled by default].
-
+- `evis4` - Casts Eviscerate at 4+ combo points [Active Default].
+- `evis5` - Waits to cast Eviscerate until you have exactly 5 combo points.
+- `hemo` - Uses Hemorrhage as your primary combo point builder [Default is Sinister Strike].
+- `cds` - Pops Adrenaline Rush and Blade Flurry on cooldown regardless of target [Disabled by default].
+- `autocd` - Only pops Adrenaline Rush and Blade Flurry if the target is classified as an Elite, Rare Elite, or World Boss [Disabled by default].
+- `expose` - Attempts to apply Expose Armor at 5 combo points if the target is an Elite/Boss and does not already have the debuff [Disabled by default].
+- `nosnd` - Completely forces the addon to ignore Slice and Dice, useful if you want a pure Eviscerate/Envenom dump build.
 
 # Example: 
 # The Standard Leveling Setup
 `/AutoRogue`
 
-Will function with all default settings. It ensures auto-attack is on, instantly casts Riposte if you parry, applies Slice and Dice at 2 combo points, Eviscerates at 4 combo points, and builds with Sinister Strike.
+Functions with all default settings. It ensures auto-attack is on, instantly casts Riposte if you parry, smartly refreshes Slice and Dice when it drops, dumps remaining points into Eviscerate at 4+ CP, and builds with your primary strike.
 
 # The "Smart Boss" Setup
-`/AutoRogue snd1 evis5 autocd expose`
+`/AutoRogue evis5 autocd expose`
 
-On a normal mob, it functions like a standard rotation (SnD at 1 CP, Eviscerates at 5 CP). However, when you target an Elite or Boss, it will intelligently pop Adrenaline Rush and Blade Flurry, build to 5 combo points to cast Expose Armor, and then proceed to spend future 5-point combos on Eviscerate.
+On a normal mob, it functions like a standard rotation. However, when you target an Elite or Boss, it intelligently pops Adrenaline Rush and Blade Flurry, builds 5 combo points to cast Expose Armor, and then proceeds to spend future 5-point combos on Eviscerate (or Envenom).
 
 # The Subtlety Setup
 `/AutoRogue hemo evis5`
 
-Replaces Sinister Strike with Hemorrhage as the combo point builder and waits for 5 full combo points before casting Eviscerate.
+Replaces Sinister Strike with Hemorrhage as the combo point builder and waits for 5 full combo points before casting your finishing moves.
