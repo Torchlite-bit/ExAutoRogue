@@ -2,6 +2,18 @@
 
 All notable changes to this addon, relative to the original v1.3.
 
+## [1.6]
+
+### Added
+- **Deadly Poison Stack Tracking.** Added `ExAutoRogue:GetDebuffStacks(textureName)` to accurately read the number of applications of a specific debuff on the target.
+
+### Changed
+- **Smart Envenom Protection.** Envenom is now guarded by a poison check. The script verifies that the target has at least 1 stack of Deadly Poison (using the `ability_rogue_dualweild` texture) before attempting to cast Envenom. This prevents wasting energy and combo points on a 0-damage finisher.
+- **Dynamic Buff Refresh.** Maintained buffs (Slice and Dice, Envenom) now simply refresh using all currently available combo points the moment the buff drops. This prevents the script from forcing painfully weak (1 or 2 CP) Eviscerates just to clear the board for a 1 CP refresh.
+
+### Removed
+- **Timer-based predictive refresh.** Removed the `sndExpire`, `envExpire`, `SND_DUR`, and `ENV_DUR` predictive variables. Because the Vanilla `CastSpellByName()` API does not natively report if a cast failed due to low energy, the timer logic was prone to "false positives" where the script believed a buff was successfully applied when it actually failed, causing the rotation to stall. Texture presence is now the strict, sole source of truth.
+
 ## [1.5]
 
 ### Changed
