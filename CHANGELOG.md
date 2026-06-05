@@ -1,6 +1,21 @@
 # ExAutoRogue Changelog
 
 All notable changes to this addon, relative to the original v1.3.
+## [1.7]
+
+### Added
+- **Graphical User Interface (GUI).** Built a pure Lua visual configuration panel (`ExAutoRogueUI`) using standard WoW frame templates. The panel features a movable window, a gold title header, interactive checkboxes, and an adjustable slider.
+- **Persistent Storage (SavedVariables).** Integrated `ExAutoRogueDB` database support to permanently save user settings across character reloads, logouts, and client restarts. 
+- **Interactive Toggles & Sliders.** 
+  - Added checkboxes for **Maintain Slice and Dice**, **Use Major Cooldowns**, and **Smart CDs (Elites/Bosses Only)**.
+  - Added a dynamic **Eviscerate CP Threshold** slider that lets players visually snap their finishing point anywhere between 1 and 5 combo points.
+- **New Interface Command.** Expanded the global slash command so typing `/autorogue ui` in chat cleanly toggles the configuration panel on and off.
+
+### Changed
+- **Database-Driven Rotation Engine.** Completely overhauled `ExAutoRogue:EvalCommand()`. The combat engine no longer wastes performance parsing text strings inside a macro; it now instantly references the saved database parameters to evaluate priorities.
+
+### Removed
+- **Manual Macro Arguments.** Removed macro text string scanning (`nosnd`, `evis4`, `evis5`, `cds`, `autocd`). Users no longer need to type long, clunky command chains into their macro frames.
 
 ## [1.6]
 
