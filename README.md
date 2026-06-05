@@ -17,6 +17,8 @@ You no longer need to type long strings of arguments into your macros. To config
 
 `/autorogue ui`
 
+<img width="401" height="469" alt="image" src="https://github.com/user-attachments/assets/ff31f314-3c4b-4003-b31b-52949e584b7a" />
+
 This will toggle a movable, interactive options frame where you can adjust the following settings on the fly:
 
 **- Maintain Slice and Dice (Checkbox):** Toggles whether the addon maintains your SnD uptime. Unchecking this completely ignores SnD (great for pure finisher/burst builds or low-level characters under level 10).
@@ -51,3 +53,5 @@ If you are running SuperCleveRoidMacros, pair it with an attack starter for the 
 `/AutoRogue`
 
 Bind this macro to your main spammable combat key, configure your thresholds inside /autorogue ui, and the script will perfectly manage your builders, custom finishers, priority parry-ripostes, and boss-level cooldown spikes entirely automatically.
+
+<img width="451" height="600" alt="image" src="https://github.com/user-attachments/assets/f5c79a54-3e4c-4a02-a5c0-310db563cb51" />
