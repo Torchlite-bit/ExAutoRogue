@@ -1,3 +1,6 @@
+# UPDATE
+While the addon still works - all development has been moved to [AEGIS: SBR](https://github.com/Torchlite-bit/Aegis_SBR)
+
 # ExAutoRogue
 An Addon for 1.12.1 / 1.18.1 (TurtleWoW) for automatically managing a Rogue's combat rotation to maintain maximum uptime on Slice and Dice while efficiently spending combo points. This addon dynamically reads your spellbook to adapt to your level and talent build, making it perfect for custom servers and unique ability paths.
 
